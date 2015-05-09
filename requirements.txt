@@ -1,0 +1,8 @@
+Flask>=0.10.1
+boto>=2.27.0
+boto3>=0.0.15
+botocore>=0.104.0
+demjson>=2.2.2
+requests>=2.6.0
+simplejson>=3.6.5
+twilio>=4.2.0
