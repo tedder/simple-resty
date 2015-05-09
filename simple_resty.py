@@ -13,7 +13,7 @@ import ConfigParser
 
 config = ConfigParser.ConfigParser()
 config.read(['creds.ini', '~/creds.ini', '/home/pi/creds.ini'])
- 
+
 client = TwilioRestClient(
   config.get('twilio', 'account_sid'),
   config.get('twilio', 'auth_token')
@@ -62,7 +62,7 @@ def no_phone_calls():
 
 def stash():
   message = client.messages.create(body='', to='', from_=config.get('twilio', 'de_phone'))
-  print message.sid 
+  print message.sid
 
 if __name__ == '__main__':
   handler = RotatingFileHandler('/home/pi/flask.log', maxBytes=100*1024*1024, backupCount=5)
