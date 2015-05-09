@@ -47,7 +47,7 @@ def sms_to_email():
   app.logger.info('sent email. response: ' + str(send_resp))
   return flask.Response('<Response></Response>', mimetype='text/xml')
 
-@app.route('/twilio/no-phone-calls-please')
+@app.route('/twilio/no-phone-calls-please', methods=['GET', 'POST'])
 def no_phone_calls():
   extra = request.values.get('extra', '')
 
