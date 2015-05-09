@@ -51,11 +51,11 @@ def sms_to_email():
 def no_phone_calls():
   extra = request.values.get('extra', '')
 
-  xml = '<?xml version="1.0" encoding="UTF-8"?><Response>'
+  xml = '<?xml version="1.0" encoding="UTF-8"?><Response><Pause length="4"/>'
   for x in range(2):
-    xml += '<Say voice="woman">Sorry, this number only accepts SMS text messages.</Say>'
+    xml += '<Say voice="woman">Sorry, this number only accepts SMS text messages.</Say><Pause length="2"/>'
     if extra == 'de':
-      xml += '<Say voice="man" language="de">Sorry, akzeptiert nur diese Zahl Kurznachrichtendienst.</Say>'
+      xml += '<Say voice="man" language="de">Sorry, akzeptiert nur diese Zahl Kurznachrichtendienst.</Say><Pause length="2"/>'
 
   xml += '</Response>'
   return flask.Response(xml, mimetype='text/xml')
