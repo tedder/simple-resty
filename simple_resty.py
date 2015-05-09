@@ -49,7 +49,7 @@ def sms_to_email():
 
 @app.route('/twilio/no-phone-calls-please')
 def no_phone_calls():
-  extra = request.get('extra', '')
+  extra = request.values.get('extra', '')
 
   xml = '<?xml version="1.0" encoding="UTF-8"?><Response>'
   for x in range(2):
