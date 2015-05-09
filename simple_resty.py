@@ -12,7 +12,7 @@ import json
 import ConfigParser
 
 config = ConfigParser.ConfigParser()
-config.read('creds.ini')
+config.read(['creds.ini', '~/creds.ini', '/home/pi/creds.ini'])
  
 client = TwilioRestClient(
   config.get('twilio', 'account_sid'),
@@ -26,7 +26,7 @@ def home():
   return 'nope.'
 
 @app.route('/health')
-def home():
+def health():
   return 'true'
 
 @app.route('/twilio/sms-to-email', methods=['GET', 'POST'])
